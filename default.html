@@ -41,7 +41,14 @@ $if(subtitle)$
 <h1 class="subtitle">$subtitle$</h1>
 $endif$
 $for(author)$
+$if(author.name)$
+<h2 class="author">$author.name$$if(author.affiliation)$ ($author.affiliation$)$endif$</h2>
+$if(author.orcid)$<p><a href="https://orcid.org/$author.orcid$" target="_blank">ORCID: $author.orcid$</a></p>$endif$
+$if(author.phone)$<p><a href="tel:$author.phone$">Phone: $author.phone$</a></p>$endif$
+$if(author.github)$<p><a href="https://github.com/$author.github$" target="_blank">GitHub: $author.github$</a></p>$endif$
+$else$
 <h2 class="author">$author$</h2>
+$endif$
 $endfor$
 $if(date)$
 <h3 class="date">$date$</h3>
